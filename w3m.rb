@@ -56,7 +56,8 @@ class W3m < Formula
       ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200
   
       system "./configure", "--prefix=#{prefix}",
-                            "--disable-image",
+                            "--enable-image",
+                            "--with-imagelib=imlib2",
                             "--with-ssl=#{Formula["openssl@3"].opt_prefix}"
       system "make", "install"
     end
